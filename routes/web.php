@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+
+Route::middleware('cors')->group(function () {
+    Route::prefix('categories')->group(function () {
+        Route::get('', [CategoryController::class, 'index'])->name('categories.index');
+        Route::get('create', [CategoryController::class, 'create'])->name('categories.create');
+        Route::get('create', [CategoryController::class, 'store'])->name('categories.store');
+        Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+        Route::get('edit/{id}', [CategoryController::class, 'update'])->name('categories.update');
+    });
 });
