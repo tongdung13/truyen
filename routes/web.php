@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\NovelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,15 @@ Route::middleware('cors')->group(function () {
         Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
         Route::post('edit/{id}', [CategoryController::class, 'update'])->name('categories.update');
         Route::get('destroy/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    });
+
+    Route::prefix('novels')->group(function () {
+        Route::get('', [NovelController::class, 'index'])->name('novels.index');
+        Route::get('create', [NovelController::class, 'create'])->name('novels.create');
+        Route::post('create', [NovelController::class, 'store'])->name('novels.store');
+        Route::get('edit/{id}', [NovelController::class, 'edit'])->name('novels.edit');
+        Route::post('edit/{id}', [NovelController::class, 'update'])->name('novels.update');
+        Route::get('destroy/{id}', [NovelController::class, 'destroy'])->name('novels.destroy');
+        Route::get('show/{id}', [NovelController::class, 'show'])->name('novels.detail');
     });
 });

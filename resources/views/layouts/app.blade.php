@@ -30,6 +30,8 @@
     <link href="https://colorlib.com/polygon/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <link href="https://colorlib.com/polygon/build/css/custom.min.css" rel="stylesheet">
+    <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+
     <meta name="robots" content="index, nofollow">
 </head>
 
@@ -49,17 +51,16 @@
                             <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Home</a></li>
-                                <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-edit"></i> Novels <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="">General Form</a>
+                                        <li><a href="{{ route('novels.index') }}">Novel</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-desktop"></i> UI Elements <span
+                                <li><a><i class="fa fa-desktop"></i> Story Name<span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="">General
-                                                Elements</a></li>
+                                        <li><a href="">Story Name</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
@@ -127,7 +128,11 @@
 
         </div>
     </div>
-
+    <script type="">
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
     <script src="https://colorlib.com/polygon/vendors/jquery/dist/jquery.min.js"></script>
 
     <script src="https://colorlib.com/polygon/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
