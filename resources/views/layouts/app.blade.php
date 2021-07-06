@@ -94,14 +94,15 @@
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
                                     id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                                     <img src="{{ asset('admin/images/2.jpg') }}" alt="">
-                                    {{-- @if($user = \Illuminate\Supprot\Facades\Auth::user())
+                                    @if($user = \Illuminate\Support\Facades\Auth::user())
+                                    I
                                         {{ $user->name }}
-                                    @endif --}}
+                                    @endif
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right"
                                     aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
-                                        href=""><i
+                                        href="{{ route('logout') }}"><i
                                             class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </div>
                             </li>
