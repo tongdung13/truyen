@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+    <link rel="icon" href="{{ asset('admin/images/favicon.ico') }}" type="image/ico" />
     <title>@yield('title')</title>
 
     <link href="https://colorlib.com/polygon/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
     <link href="https://colorlib.com/polygon/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <link href="https://colorlib.com/polygon/build/css/custom.min.css" rel="stylesheet">
-    <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <meta name="robots" content="index, nofollow">
 </head>
@@ -41,8 +41,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="" class="site_title"><i
-                                class="fa fa-paw"></i> <span>Truyện Hay</span></a>
+                        <a href="" class="site_title"><i class="fa fa-paw"></i> <span>Truyện Hay</span></a>
                     </div>
                     <div class="clearfix"></div>
                     <hr>
@@ -50,7 +49,7 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home"></i> Home</a></li>
+                                <li><a href="{{ route('categories.index') }}"><i class="fa fa-home"></i> Home</a></li>
                                 <li><a><i class="fa fa-edit"></i> Novels <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('novels.index') }}">Novel</a>
@@ -60,12 +59,12 @@
                                 <li><a><i class="fa fa-desktop"></i> Story Name<span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="">Story Name</a></li>
+                                        <li><a href="{{ route('storyNames.index') }}">Story Name</a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-table"></i> List Story <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="">Tables</a>
+                                        <li><a href="{{ route('listStorys.index') }}">List Story</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -95,15 +94,14 @@
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
                                     id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                                     <img src="{{ asset('admin/images/2.jpg') }}" alt="">
-                                    @if($user = \Illuminate\Support\Facades\Auth::user())
-                                    I
+                                    @if ($user = \Illuminate\Support\Facades\Auth::user())
+                                        I
                                         {{ $user->name }}
                                     @endif
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right"
                                     aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"
-                                        href="{{ route('logout') }}"><i
+                                    <a class="dropdown-item" href="{{ route('logout') }}"><i
                                             class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </div>
                             </li>
@@ -128,11 +126,8 @@
 
         </div>
     </div>
-    <script type="">
-        $(document).ready(function() {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
+
+
     <script src="https://colorlib.com/polygon/vendors/jquery/dist/jquery.min.js"></script>
 
     <script src="https://colorlib.com/polygon/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -173,6 +168,17 @@
     <script src="https://colorlib.com/polygon/build/js/custom.min.js"></script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"rayId":"66a636909af824b2","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.6.0","si":10}'>
+    </script>
+    <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
     </script>
 </body>
 

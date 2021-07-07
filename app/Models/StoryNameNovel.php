@@ -18,4 +18,9 @@ class StoryNameNovel extends Model
     {
         return $this->belongsTo(StoryName::class);
     }
+
+    public function novel()
+    {
+        return $this->belongsTo(Novel::class);
+    }
 }

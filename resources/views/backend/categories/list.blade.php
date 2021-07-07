@@ -22,18 +22,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    @foreach ($categories as $key => $value)
+                @foreach ($categories as $key => $value)
+                    <tr>
                         <td>{{ ++$key }}</td>
                         <td>{{ $value->name }}</td>
                         <td>
                             <a href="{{ route('categories.edit', $value->id) }}"
                                 class="btn btn-sm btn-outline-warning">Update</a>
-                            <a href="{{ route('categories.destroy', $value->id) }}" onclick="return confirm('Bạn có muốn xóa không?')"
+                            <a href="{{ route('categories.destroy', $value->id) }}"
+                                onclick="return confirm('Bạn có muốn xóa không?')"
                                 class="btn btn-sm btn-outline-danger">Delete</a>
                         </td>
-                    @endforeach
-                </tr>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         <div class="d-flex justify-content-center">

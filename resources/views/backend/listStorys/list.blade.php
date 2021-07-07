@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Novel')
+@section('title', 'List Story')
 
 @section('content')
 
     <div class="container">
         <div class="row">
             <div class="col-11">
-                <h3 style="color: brown">Novel</h3>
+                <h3 style="color: brown">List Story</h3>
             </div>
             <div class="col-1">
-                <a href="{{ route('novels.create') }}" class="btn btn-sm btn-outline-primary">Add</a>
+                <a href="{{ route('listStorys.create') }}" class="btn btn-sm btn-outline-primary">Add</a>
             </div>
         </div>
         <table class="table">
@@ -18,22 +18,18 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Chapter</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($novels as $key => $value)
+                @foreach ($listStorys as $key => $value)
                     <tr>
                         <td>{{ ++$key }}</td>
+                        <td>{{ $value->name }}</td>
                         <td>
-                            <a href="{{ route('novels.detail', $value->id) }}">{{ $value->name }}</a>
-                        </td>
-                        <td>{{ $value->chapter }}</td>
-                        <td>
-                            <a href="{{ route('novels.edit', $value->id) }}"
+                            <a href="{{ route('listStorys.edit', $value->id) }}"
                                 class="btn btn-sm btn-outline-warning">Update</a>
-                            <a href="{{ route('novels.destroy', $value->id) }}"
+                            <a href="{{ route('listStorys.destroy', $value->id) }}"
                                 onclick="return confirm('Bạn có muốn xóa không?')"
                                 class="btn btn-sm btn-outline-danger">Delete</a>
                         </td>
@@ -42,7 +38,7 @@
             </tbody>
         </table>
         <div class="d-flex justify-content-center">
-            {{ $novels->links('pagination::bootstrap-4') }}
+            {{ $listStorys->links('pagination::bootstrap-4') }}
         </div>
     </div>
 
